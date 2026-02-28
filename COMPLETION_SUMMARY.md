@@ -142,7 +142,7 @@ Two comprehensive `.github/copilot-instructions.md` files created:
 cd agency-frontend
 npm run dev
 ```
-Access: `http://localhost:5173` (or 5174 if port in use)
+Access: `https://laxmi-agency-frontend.onrender.com`
 
 ### Build Production
 ```bash
@@ -302,7 +302,7 @@ Your Laxmi Agency frontend has been successfully transformed into a **profession
 
 **Next Steps**:
 1. Review the copilot instructions files
-2. Test the application at `localhost:5173`
+2. Test the application at `https://laxmi-agency-frontend.onrender.com`
 3. Deploy with confidence!
 
 ---

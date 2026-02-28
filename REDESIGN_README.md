@@ -54,7 +54,7 @@ Your Laxmi Agency frontend has been completely redesigned with a **premium brand
 cd agency-frontend
 npm run dev
 ```
-**Access**: `http://localhost:5173`
+**Access**: `https://laxmi-agency-frontend.onrender.com`
 
 ### Build for Production
 ```bash

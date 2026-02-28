@@ -9,7 +9,7 @@ Welcome! Your Laxmi Agency frontend has been completely redesigned. Here's where
 cd agency-frontend
 npm run dev
 ```
-→ Access at `http://localhost:5173`
+→ Access at `https://laxmi-agency-frontend.onrender.com`
 
 **Build for Production**:
 ```bash

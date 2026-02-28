@@ -202,7 +202,7 @@ Root:
 ```bash
 cd agency-frontend
 npm run dev
-# Access: http://localhost:5173
+# Access: https://laxmi-agency-frontend.onrender.com
 ```
 
 ### Production
