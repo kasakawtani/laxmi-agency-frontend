@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import API from '../api/api';
+import { loginUser } from '../api/auth';
 import { FormInput } from '../components/FormInput';
 import { Button } from '../components/Button';
 import { colors, spacing, borderRadius, transitions } from '../config/colors';
@@ -24,23 +25,23 @@ export default function Login() {
     setError('');
     setIsLoading(true);
     try {
-      const res = await API.post('/auth/login', { email, password });
-      console.log('Login response:', res.data);
+      const res = await loginUser({ email, password });
+      console.log('Login response:', res);
 
       // Only proceed if we have both token and role
-      if (!res.data?.token || !res.data?.role) {
+      if (!res?.token || !res?.role) {
         setError('Login failed: Invalid response from server');
         return;
       }
 
       // Save token and role
-      localStorage.setItem('authToken', res.data.token);
-      localStorage.setItem('role', res.data.role);
-      localStorage.setItem('email', res.data.email);
-      console.log('Auth data saved:', { token: res.data.token, role: res.data.role });
+      localStorage.setItem('authToken', res.token);
+      localStorage.setItem('role', res.role);
+      localStorage.setItem('email', res.email);
+      console.log('Auth data saved:', { token: res.token, role: res.role });
 
       // Navigate based on role
-      if (res.data.role === 'admin') {
+      if (res.role === 'admin') {
         console.log('Admin login successful, redirecting to /admin/add-item');
         navigate('/admin/add-item');
       } else {
@@ -49,8 +50,10 @@ export default function Login() {
         navigate(from);
       }
     } catch (err) {
-      console.error('Login error:', err);
-      setError('Invalid email or password');
+      // show server-provided message if available
+      const msg = err.response?.data?.message || err.message || 'Login failed';
+      console.error('Login error:', err.response?.data || err.message);
+      setError(msg);
     } finally {
       setIsLoading(false);
     }

@@ -268,6 +268,10 @@ export default function Home() {
             src="/Modern_LAXMI_AGENCY_Logo_in_Pink_and_Green-removebg-preview.png"
             alt="Laxmi Agency"
             style={page.logo}
+            onError={(e) => {
+              e.currentTarget.onerror = null;
+              e.currentTarget.src = '/logo.png';
+            }}
           />
           <div style={page.tagline}>
             <div style={{ fontSize: 16, color: themeColors.accent.main, marginBottom: 4, letterSpacing: '2px' }}>

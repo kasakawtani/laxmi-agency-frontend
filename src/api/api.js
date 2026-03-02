@@ -1,7 +1,23 @@
 import axios from "axios";
 
+// construct base URL from environment variable with fallback
+const rawUrl = import.meta.env.VITE_API_URL;
+console.log("API URL:", rawUrl);
+
+let baseUrl;
+if (rawUrl && typeof rawUrl === "string") {
+  // ensure there is no trailing slash before appending
+  const trimmed = rawUrl.replace(/\/+$/, "");
+  baseUrl = trimmed.endsWith("/api") ? trimmed : `${trimmed}/api`;
+} else {
+  // fallback to localhost development server
+  baseUrl = "http://localhost:5000/api";
+  console.warn("VITE_API_URL is undefined; using fallback localhost URL. This is not suitable for production.");
+}
+console.log("Computed baseURL:", baseUrl);
+
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000/api"
+  baseURL: baseUrl
 });
 
 // ADMIN
