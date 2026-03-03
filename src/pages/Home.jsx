@@ -267,8 +267,8 @@ export default function Home() {
       <div style={page.wrapper}>
         {/* Hero Section with Logo and Tagline */}
         <section style={page.heroSection}>
-          <img
-  src="/Modern_LAXMI_AGENCY_Logo_in_Pink_and_Green-removebg-preview.png"
+         <img
+  src="/logo.png"
   alt="Laxmi Agency"
   style={page.logo}
 />
