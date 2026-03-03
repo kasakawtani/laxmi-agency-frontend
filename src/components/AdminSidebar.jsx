@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { spacing, borderRadius, transitions } from '../config/colors';
 import { getColors } from '../config/colorsTheme';
 import { useTheme } from '../context/ThemeContext';
+import { useSidebar } from '../context/SidebarContext';
 
 /**
  * Modern AdminSidebar Component
