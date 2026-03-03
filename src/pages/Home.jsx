@@ -8,7 +8,6 @@ import { Button } from '../components/Button';
 import { FormInput } from '../components/FormInput';
 import { submitInquiry } from '../api/api';
 import API from '../api/api';
-import logo from "../assets/logo.png";
 
 
 
@@ -268,11 +267,6 @@ export default function Home() {
       <div style={page.wrapper}>
         {/* Hero Section with Logo and Tagline */}
         <section style={page.heroSection}>
-        <img
-  src={logo}
-  alt="Laxmi Agency"
-  style={page.logo}
-/>
           <div style={page.tagline}>
             <div style={{ fontSize: 16, color: themeColors.accent.main, marginBottom: 4, letterSpacing: '2px' }}>
               ★★★★★

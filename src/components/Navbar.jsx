@@ -87,16 +87,12 @@ export default function Navbar() {
   return (
     <header style={styles.container}>
       <Link to="/" style={styles.logoLink}>
-        <img 
-          src="/Modern_LAXMI_AGENCY_Logo_in_Pink_and_Green-removebg-preview.png" 
-          alt="Laxmi Agency" 
-          style={styles.logoImg}
-          onError={(e) => {
-            // fallback to simpler logo or hide if missing
-            e.currentTarget.onerror = null;
-            e.currentTarget.src = '/logo.png';
-          }}
-        />
+        <div style={{ display: 'flex', alignItems: 'center', gap: spacing.sm }}>
+          <div style={{ width: 42, height: 42, borderRadius: 8, background: 'transparent' }} aria-hidden="true" />
+          <div style={{ fontWeight: 700, color: themeColors.brand.contrastText, fontSize: 16 }}>
+            Laxmi Agency
+          </div>
+        </div>
       </Link>
 
       <nav style={styles.nav}>
