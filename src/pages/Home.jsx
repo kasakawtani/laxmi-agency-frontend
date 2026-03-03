@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState, useRef } from 'react';
 import { spacing, borderRadius } from '../config/colors';
 import { getColors } from '../config/colorsTheme';
@@ -7,6 +8,8 @@ import { Button } from '../components/Button';
 import { FormInput } from '../components/FormInput';
 import { submitInquiry } from '../api/api';
 import API from '../api/api';
+
+
 
 export default function Home() {
   const { isDarkMode } = useTheme();
@@ -265,14 +268,10 @@ export default function Home() {
         {/* Hero Section with Logo and Tagline */}
         <section style={page.heroSection}>
           <img
-            src="/Modern_LAXMI_AGENCY_Logo_in_Pink_and_Green-removebg-preview.png"
-            alt="Laxmi Agency"
-            style={page.logo}
-            onError={(e) => {
-              e.currentTarget.onerror = null;
-              e.currentTarget.src = '/logo.png';
-            }}
-          />
+  src="/logo.png"
+  alt="Laxmi Agency"
+  style={page.logo}
+/>
           <div style={page.tagline}>
             <div style={{ fontSize: 16, color: themeColors.accent.main, marginBottom: 4, letterSpacing: '2px' }}>
               ★★★★★
