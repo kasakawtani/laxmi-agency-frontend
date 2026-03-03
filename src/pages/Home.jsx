@@ -8,6 +8,7 @@ import { Button } from '../components/Button';
 import { FormInput } from '../components/FormInput';
 import { submitInquiry } from '../api/api';
 import API from '../api/api';
+import logo from "../assets/logo.png";
 
 
 
@@ -148,6 +149,7 @@ export default function Home() {
       marginBottom: spacing.xl,
       animation: 'slideInUpSmooth 800ms ease-out',
     },
+    // logo style no longer used (image styled inline above tag)
     logo: {
       width: introStage === 1 ? 320 : 280,
       height: 'auto',
@@ -267,28 +269,28 @@ export default function Home() {
       <div style={page.wrapper}>
         {/* Hero Section with Logo and Tagline */}
         <section style={page.heroSection}>
-  <img
-    src={logo}
-    alt="Laxmi Agency"
-    style={{
-      width: 180,
-      height: 'auto',
-      objectFit: 'contain',
-      marginBottom: 20,
-      display: 'block',
-      marginLeft: 'auto',
-      marginRight: 'auto',
-    }}
-  />
-  <div style={page.tagline}>
-    <div style={{ fontSize: 16, color: themeColors.accent.main, marginBottom: 4, letterSpacing: '2px' }}>
-      ★★★★★
-    </div>
-    <div style={{ fontWeight: 700, fontSize: 32, lineHeight: 1.3, color: themeColors.text.primary }}>
-      Your Trusted Partner for Quality Fabrics
-    </div>
-  </div>
-</section>
+          <img
+            src={logo}
+            alt="Laxmi Agency"
+            style={{
+              width: 180,
+              height: 'auto',
+              objectFit: 'contain',
+              marginBottom: 20,
+              display: 'block',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }}
+          />
+          <div style={page.tagline}>
+            <div style={{ fontSize: 16, color: themeColors.accent.main, marginBottom: 4, letterSpacing: '2px' }}>
+              ★★★★★
+            </div>
+            <div style={{ fontWeight: 700, fontSize: 32, lineHeight: 1.3, color: themeColors.text.primary }}>
+              Your Trusted Partner for Quality Fabrics
+            </div>
+          </div>
+        </section>
 
         {/* We Sell Section */}
         <section style={page.section} data-animate>
