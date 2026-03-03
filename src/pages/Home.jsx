@@ -267,15 +267,28 @@ export default function Home() {
       <div style={page.wrapper}>
         {/* Hero Section with Logo and Tagline */}
         <section style={page.heroSection}>
-          <div style={page.tagline}>
-            <div style={{ fontSize: 16, color: themeColors.accent.main, marginBottom: 4, letterSpacing: '2px' }}>
-              ★★★★★
-            </div>
-            <div style={{ fontWeight: 700, fontSize: 32, lineHeight: 1.3, color: themeColors.text.primary }}>
-              Your Trusted Partner for Quality Fabrics
-            </div>
-          </div>
-        </section>
+  <img
+    src={logo}
+    alt="Laxmi Agency"
+    style={{
+      width: 180,
+      height: 'auto',
+      objectFit: 'contain',
+      marginBottom: 20,
+      display: 'block',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    }}
+  />
+  <div style={page.tagline}>
+    <div style={{ fontSize: 16, color: themeColors.accent.main, marginBottom: 4, letterSpacing: '2px' }}>
+      ★★★★★
+    </div>
+    <div style={{ fontWeight: 700, fontSize: 32, lineHeight: 1.3, color: themeColors.text.primary }}>
+      Your Trusted Partner for Quality Fabrics
+    </div>
+  </div>
+</section>
 
         {/* We Sell Section */}
         <section style={page.section} data-animate>
