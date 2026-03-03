@@ -13,6 +13,7 @@ export default function AdminSidebar() {
   const colors = getColors(isDarkMode);
   const location = useLocation();
   const [isHovered, setIsHovered] = useState(null);
+  const { isOpen, close } = useSidebar();
 
   const sidebarStyles = {
     container: {
@@ -135,9 +136,27 @@ export default function AdminSidebar() {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <aside style={sidebarStyles.container}>
+    <aside className={"admin-sidebar" + (isOpen ? ' open' : '')} style={sidebarStyles.container}>
       {/* Header */}
       <div style={sidebarStyles.header}>
+        {/* close button on mobile */}
+        <button
+          onClick={close}
+          style={{
+            display: 'none',
+            position: 'absolute',
+            top: spacing.md,
+            right: spacing.md,
+            background: 'transparent',
+            border: 'none',
+            fontSize: '24px',
+            color: isDarkMode ? colors.neutral[400] : colors.neutral[500],
+            cursor: 'pointer',
+          }}
+          className="sidebar-close"
+        >
+          ×
+        </button>
         <div
           style={sidebarStyles.logo}
           onMouseEnter={() => setIsHovered('logo')}
@@ -161,6 +180,7 @@ export default function AdminSidebar() {
                   ...(isHovered === item.path && !isActive(item.path) && sidebarStyles.navLinkHover),
                   animation: `slideInRight 300ms ease-out ${50 * (index + 1)}ms both`,
                 }}
+                onClick={() => close()}
                 onMouseEnter={() => setIsHovered(item.path)}
                 onMouseLeave={() => setIsHovered(null)}
               >

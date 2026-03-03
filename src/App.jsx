@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { injectGlobalStyles } from './styles/globalStyles';
 import { ThemeProvider } from './context/ThemeContext';
+import { SidebarProvider } from './context/SidebarContext';
 import Login from './pages/Login';
 import Admin from './pages/Admin';
 import AdminTable from './pages/AdminTable';
@@ -19,9 +20,10 @@ function App() {
 
   return (
     <ThemeProvider>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
+      <SidebarProvider>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
           {/* PUBLIC */}
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -59,6 +61,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
+      </SidebarProvider>
     </ThemeProvider>
   );
 }

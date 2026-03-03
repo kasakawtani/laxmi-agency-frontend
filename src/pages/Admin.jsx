@@ -6,6 +6,7 @@ import { ThemeToggle } from '../components/ThemeToggle';
 import { spacing, borderRadius, transitions } from '../config/colors';
 import { getColors } from '../config/colorsTheme';
 import { useTheme } from '../context/ThemeContext';
+import { useSidebar } from '../context/SidebarContext';
 import API from '../api/api';
 
 /**
@@ -15,6 +16,7 @@ import API from '../api/api';
 export default function Admin() {
   const { isDarkMode } = useTheme();
   const colors = getColors(isDarkMode);
+  const { isOpen } = useSidebar();
 
   const [form, setForm] = useState({
     itemName: '',
@@ -189,7 +191,7 @@ export default function Admin() {
     <div style={pageStyles.container}>
       <AdminSidebar />
 
-      <div style={pageStyles.mainContent}>
+      <div className="main-content" style={pageStyles.mainContent}>
         <div style={pageStyles.contentWrapper}>
           {/* Header with Theme Toggle */}
           <div style={{ ...pageStyles.header, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -210,7 +212,7 @@ export default function Admin() {
 
           {/* Form Card */}
           <div style={pageStyles.formCard}>
-            <div style={pageStyles.formGrid}>
+            <div className="form-grid" style={pageStyles.formGrid}>
               <div>
                 <FormInput
                   label="Item Name"

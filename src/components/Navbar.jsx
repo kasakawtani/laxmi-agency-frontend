@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { spacing } from '../config/colors';
 import { useTheme } from '../context/ThemeContext';
 import { getColors } from '../config/colorsTheme';
+import { useSidebar } from '../context/SidebarContext';
 
 export default function Navbar() {
   const location = useLocation();
@@ -26,6 +27,7 @@ export default function Navbar() {
   const { isDarkMode } = useTheme();
   const themeColors = getColors(isDarkMode);
   const [hovered, setHovered] = React.useState(null);
+  const { isOpen, toggle } = useSidebar();
 
   const styles = {
     container: {
@@ -95,7 +97,21 @@ export default function Navbar() {
         </div>
       </Link>
 
-      <nav style={styles.nav}>
+      <button
+          className="hamburger"
+          onClick={toggle}
+          style={{
+            display: 'none',
+            background: 'transparent',
+            border: 'none',
+            color: themeColors.brand.contrastText,
+            fontSize: '24px',
+            cursor: 'pointer',
+          }}
+        >
+          ☰
+        </button>
+      <nav style={styles.nav} className={isOpen ? 'nav-open' : ''}>
         <Link
           to="/"
           onMouseEnter={() => setHovered('/')}

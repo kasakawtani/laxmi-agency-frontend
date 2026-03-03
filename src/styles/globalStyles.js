@@ -263,6 +263,80 @@ const globalStyles = `
     outline: 2px solid ${colors.primary.main};
     outline-offset: 2px;
   }
+
+  /* ============== RESPONSIVE BREAKPOINTS ============== */
+  @media (max-width: 768px) {
+    body {
+      overflow-x: hidden;
+    }
+
+    .admin-sidebar {
+      width: 80%;
+      max-width: 300px;
+      transform: translateX(-100%);
+      transition: transform 300ms ease-out;
+      position: fixed;
+      height: 100vh;
+      z-index: 1100;
+    }
+    .admin-sidebar.open {
+      transform: translateX(0);
+    }
+
+    .hamburger {
+      display: block !important;
+    }
+    .sidebar-close {
+      display: none;
+    }
+
+    nav {
+      display: none !important;
+    }
+    nav.nav-open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: ${colors.gradient.brand};
+      padding: ${spacing.md};
+    }
+
+    header {
+      flex-wrap: wrap;
+    }
+    .main-content {
+      margin-left: 0 !important;
+    }
+    /* tables responsive */
+    table {
+      width: 100%;
+      overflow-x: auto !important;
+      display: block;
+    }
+    th, td {
+      white-space: normal;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: ${spacing.lg};
+    }
+    @media (max-width: 768px) {
+      .form-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    .sidebar-close {
+      display: block;
+    }
+
+    header a {
+      margin-bottom: ${spacing.sm};
+    }
+  }
 `;
 
 export const injectGlobalStyles = () => {
